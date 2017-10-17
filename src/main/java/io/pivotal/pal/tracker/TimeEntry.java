@@ -9,9 +9,7 @@ public class TimeEntry {
     private LocalDate date;
     private int hours;
 
-    public TimeEntry() {
-        id = 0;
-    }
+    public TimeEntry() {}
 
     public TimeEntry(long projectId, long userId, LocalDate date, int hours) {
         this();

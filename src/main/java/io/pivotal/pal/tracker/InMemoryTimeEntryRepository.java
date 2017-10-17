@@ -10,11 +10,10 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
 
     @Override
     public TimeEntry create(TimeEntry timeEntry) {
-        assert (timeEntry.getId() == 0);
         long id = db.size() + 1;
         timeEntry.setId(id);
         db.put(id, timeEntry);
-        return null;
+        return timeEntry;
     }
 
     @Override
