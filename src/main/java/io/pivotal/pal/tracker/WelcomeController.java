@@ -6,11 +6,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class WelcomeController {
-    @Value("${WELCOME_MESSAGE}")
-    String hello = "hello";
+
+    String _message;
+
+
+    public WelcomeController(@Value("${WELCOME_MESSAGE}") String message) {
+        _message = message;
+    }
 
     @GetMapping("/")
     public String sayHello(){
-        return hello;
+        return _message;
     }
 }
