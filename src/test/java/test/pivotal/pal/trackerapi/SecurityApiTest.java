@@ -27,12 +27,12 @@ public class SecurityApiTest {
     @Autowired
     private TestRestTemplate unAuthorizedRestTemplate;
 
+
     @Before
     public void setUp() throws Exception {
         RestTemplateBuilder builder = new RestTemplateBuilder()
-            .rootUri("http://localhost:" + port)
-            .basicAuthorization("user", "password");
-
+                .rootUri("http://localhost:"+port)
+                .basicAuthorization("user", "password");
         authorizedRestTemplate = new TestRestTemplate(builder);
     }
 
