@@ -18,6 +18,7 @@ run:
   args:
   - -exc
   - |
+
     function stop_mysql {
       service mysql stop
     }
