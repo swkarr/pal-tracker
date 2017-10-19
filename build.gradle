@@ -14,18 +14,19 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.1")
     compile("org.springframework.boot:spring-boot-starter-jdbc")
+
     compile("mysql:mysql-connector-java:6.0.6")
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
-def developmentDbUrl = "jdbc:mysql://10.0.4.41:3306/cf_2ffdb61f_651b_49ca_acff_de58d4c11088?user=rpYZJ7R5JbnKeyF5\\u0026password=aq0RP2xS3ay3WKVp"
+def developmentDbUrl = "jdbc:mysql://localhost:3306/tracker_dev?user=tracker&useSSL=false&useTimezone=true&serverTimezone=UTC&useLegacyDatetimeCode=false"
 bootRun.environment([
         "WELCOME_MESSAGE": "hello",
         "SPRING_DATASOURCE_URL": developmentDbUrl,
 ])
 
-def testDbUrl = "jdbc:mysql://10.0.4.41:3306/cf_b2530c34_9e68_4955_bb2a_8eea75a8666f?user=5nbNE4ecxqaqh2W9\u0026password=se4UCXKuoRLUvcLS"
+def testDbUrl = "jdbc:mysql://localhost:3306/tracker_test?user=tracker&useSSL=false&useTimezone=true&serverTimezone=UTC&useLegacyDatetimeCode=false"
 test.environment([
         "WELCOME_MESSAGE": "Hello from test",
         "SPRING_DATASOURCE_URL": testDbUrl,
