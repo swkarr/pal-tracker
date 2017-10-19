@@ -1,11 +1,11 @@
-package io.pivotal.pal.tracker;
+package io.pivotal.pal.tracker.timeEntry;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class InMemoryTimeEntryRepository implements TimeEntryRepository {
+public class TimeEntryRepository_InMemoryImpl implements TimeEntryRepository {
     private Map<Long, TimeEntry> db = new HashMap<>();
 
     @Override

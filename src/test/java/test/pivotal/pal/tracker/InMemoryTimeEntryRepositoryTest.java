@@ -1,7 +1,7 @@
 package test.pivotal.pal.tracker;
 
-import io.pivotal.pal.tracker.InMemoryTimeEntryRepository;
-import io.pivotal.pal.tracker.TimeEntry;
+import io.pivotal.pal.tracker.timeEntry.TimeEntryRepository_InMemoryImpl;
+import io.pivotal.pal.tracker.timeEntry.TimeEntry;
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class InMemoryTimeEntryRepositoryTest {
     @Test
     public void create() throws Exception {
-        InMemoryTimeEntryRepository repo = new InMemoryTimeEntryRepository();
+        TimeEntryRepository_InMemoryImpl repo = new TimeEntryRepository_InMemoryImpl();
         TimeEntry createdTimeEntry = repo.create(new TimeEntry(123, 456, LocalDate.parse("2017-01-08"), 8));
 
         TimeEntry expected = new TimeEntry(1L, 123, 456, LocalDate.parse("2017-01-08"), 8);
@@ -25,7 +25,7 @@ public class InMemoryTimeEntryRepositoryTest {
 
     @Test
     public void find() throws Exception {
-        InMemoryTimeEntryRepository repo = new InMemoryTimeEntryRepository();
+        TimeEntryRepository_InMemoryImpl repo = new TimeEntryRepository_InMemoryImpl();
         repo.create(new TimeEntry(123, 456, LocalDate.parse("2017-01-08"), 8));
 
         TimeEntry expected = new TimeEntry(1L, 123, 456, LocalDate.parse("2017-01-08"), 8);
@@ -35,7 +35,7 @@ public class InMemoryTimeEntryRepositoryTest {
 
     @Test
     public void list() throws Exception {
-        InMemoryTimeEntryRepository repo = new InMemoryTimeEntryRepository();
+        TimeEntryRepository_InMemoryImpl repo = new TimeEntryRepository_InMemoryImpl();
         repo.create(new TimeEntry(123, 456, LocalDate.parse("2017-01-08"), 8));
         repo.create(new TimeEntry(789, 654, LocalDate.parse("2017-01-07"), 4));
 
@@ -48,7 +48,7 @@ public class InMemoryTimeEntryRepositoryTest {
 
     @Test
     public void update() throws Exception {
-        InMemoryTimeEntryRepository repo = new InMemoryTimeEntryRepository();
+        TimeEntryRepository_InMemoryImpl repo = new TimeEntryRepository_InMemoryImpl();
         TimeEntry created = repo.create(new TimeEntry(123, 456, LocalDate.parse("2017-01-08"), 8));
 
         TimeEntry updatedEntry = repo.update(
@@ -62,7 +62,7 @@ public class InMemoryTimeEntryRepositoryTest {
 
     @Test
     public void delete() throws Exception {
-        InMemoryTimeEntryRepository repo = new InMemoryTimeEntryRepository();
+        TimeEntryRepository_InMemoryImpl repo = new TimeEntryRepository_InMemoryImpl();
         TimeEntry created = repo.create(new TimeEntry(123, 456, LocalDate.parse("2017-01-08"), 8));
 
         repo.delete(created.getId());

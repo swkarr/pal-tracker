@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import io.pivotal.pal.tracker.timeEntry.TimeEntryRepository_JdbcImpl;
+import io.pivotal.pal.tracker.timeEntry.TimeEntryRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.boot.actuate.metrics.GaugeService;
@@ -21,7 +23,7 @@ public class PalTrackerApplication {
 
     @Bean
     TimeEntryRepository timeEntryRepository(DataSource dataSource, CounterService counter, GaugeService gauge) {
-        return new JdbcTimeEntryRepository(dataSource);
+        return new TimeEntryRepository_JdbcImpl(dataSource);
     }
 
     @Bean
